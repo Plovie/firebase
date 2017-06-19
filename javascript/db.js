@@ -1,6 +1,4 @@
 'use strict'
-
-
 function db(id='') {
     return database.ref('users/' + id);
 }
@@ -27,3 +25,6 @@ function createUser(data, cb){
         })
 }
 
+function updateUser(id, data){
+    db(id).update(data);
+}

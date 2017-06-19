@@ -3,7 +3,7 @@
 
 include template/head
 include template/nav
-+head()
++head(['update.js'])
     body
     +navbar()
     form
@@ -21,4 +21,4 @@ include template/nav
                     | Age
                     input(type='text', placeholder='Age')#age
             .medium-4.columns
-                button(type='button', onclick = 'create()').hollow.button Create a User
+                button(type='button', onclick = 'update()').hollow.button.warning Update
