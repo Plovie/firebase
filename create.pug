@@ -1,0 +1,25 @@
+//
+   Created by nicol on 19/06/2017.
+
+include template/head
+include template/nav
++head(['create.js'])
+    +navbar()
+    body
+        form
+            .row
+                .medium-4.columns
+                    label
+                        | firstname
+                        input(type='text', placeholder='Firstname')#firstname
+                .medium-4.columns
+                    label
+                        | lastname
+                        input(type='text', placeholder='Lastname')#lastname
+                .medium-4.columns
+                    label
+                        | Age
+                        input(type='text', placeholder='Age')#age
+                .medium-4.columns
+                    button(type='button', onclick = 'create()').hollow.button Create a User
+

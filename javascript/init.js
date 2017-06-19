@@ -24,7 +24,8 @@ document.getElementById('create-user').addEventListener('click', function(event)
          Object.keys(usersJSON).forEach(function(id){
              users.push(usersJSON[id])
          });
-            if(document.getElementsByName('search')[0].value){
+            console.log(document.getElementsByName('search')[0].value);
+            if(document.getElementsByName('search')[0].value && document.getElementsByName('search')[0].value.length){
                 loadListUserFilter(document.getElementsByName('search')[0].value, users);
             }else{
                 loadListUser(users);
@@ -57,9 +58,36 @@ document.getElementById('create-user').addEventListener('click', function(event)
 
      document.getElementsByName('search')[0].addEventListener('change', function(event){
          var search = event.target.value;
-         console.log("coucou");
-         loadListUserFilter( search,users);
-     });
+         console.log(search);
+
+         if(search){
+             loadListUserFilter(document.getElementsByName('search')[0].value, users);
+         }else{
+             loadListUser(users);
+         }
+
+         var btn = document.getElementsByClassName('edit');
+         [].forEach.call(btn, function(elem){
+             elem.addEventListener('click', function(event){
+                 let row = event.target.parentElement.parentElement;
+                 console.log(row.childNodes[3].getElementsByClassName("update").length);
+                 if(row.childNodes[3].getElementsByClassName("update").length > 0){
+                     return false;
+                 }
+                 showEdit(row);
+                 actionEdit(row);
+
+             });
+         });
+
+         var btndelete = document.getElementsByClassName('delete');
+         [].forEach.call(btndelete, function(elem){
+             elem.addEventListener('click', function(event){
+                 let parent = event.target.parentElement.parentElement;
+                 let user = new User();
+                 user.delete(parent.id);
+             });
+         });
        // console.log(row);
         // let firstname = document.getElementsByName('createFirstname');
         // let lastname = document.getElementsByName('createLastname');
@@ -68,6 +96,6 @@ document.getElementById('create-user').addEventListener('click', function(event)
         // var user = new User(firstname[0].value, lastname[0].value, age[0].value)
         // console.log(user);
         // user.create();
-
+     });
 });
 

@@ -1,0 +1,15 @@
+include template/head
+include template/nav
++head(['show.js'])
+    body
+    +navbar()
+    div.row
+        div.column.large-12
+            table.hover
+                thead
+                    tr
+                        th(width='200') Firstname
+                        th(width='200') Lastname
+                        th(width='150') Age
+                        th(width='150') Action
+                tbody#list-user

@@ -1,50 +1,37 @@
+//
+   Created by nicol on 19/06/2017.
 
-doctype html
-html(lang='fr')
-    head
-        meta(charset='UTF-8')
-        title LOUIS VUITTON - Site Officiel France | LOUIS VUITTON
-        link(rel='stylesheet', href='style/foundation.min.css')
-        link(rel='stylesheet', href='style/style.css')
-        script(src='javascript/jquery.js')
-        script(src='javascript/foundation.min.js')
-        script(src='https://www.gstatic.com/firebasejs/4.1.2/firebase.js')
-        script(src='javascript/require.js')
-        script(src='javascript/firebase.js')
-        script(src='javascript/user.js')
-        script(type='text/javascript')
-
-
-
+include template/head
+include template/nav
++head(['list.js'])
     body
-        div.search
-            input(type="text", name='search', placeholder='Name')
-            button(href='#').hollow.button Search
-        table.hover
-            thead
-                tr
-                    th(width='200') Table Header
-                    th Table Header
-                    th(width='150') Table Header
-                    th(width='150') Table Header
-            tbody#list-user
-            tfooter
-                tr
-                    td
-                        input(type="text", name='createFirstname', placeholder='Firstname')
-                    td
-                        input(type="text", name='createLastname', placeholder=' Lastname')
-                    td
-                        input(type="numeric", name='createAge', placeholder='Age')
-                    td
-                        div.action
-                            button(href='#').hollow.button.success#create-user Create
+    +navbar()
+    div.search
+        input(type="text", name='search', placeholder='Name')
+        button(href='#').hollow.button Search
+    div.row
+        div.column large-12
+            table.hover
+                thead
+                    tr
+                        th(width='200') Firstname
+                        th(width='200') Lastname
+                        th(width='150') Age
+                        th(width='150') Action
+                tbody#list-user
+            //    tfooter
+                    tr
+                        td
+                            input(type="text", name='createFirstname', placeholder='Firstname')
+                        td
+                            input(type="text", name='createLastname', placeholder=' Lastname')
+                        td
+                            input(type="numeric", name='createAge', placeholder='Age')
+                        td
+                            div.action
+                                button(href='#').hollow.button.success#create-user Create
 
-    script.
-        $(document).foundation();
-    script(src='javascript/init.js')
-    script(src="javascript/index.js")
-    script(src="javascript/edit.js")
+
 
 
 

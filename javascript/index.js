@@ -1,17 +1,4 @@
 
-function createUser(){
-    console.log('create user');
-    let firstname = document.getElementsByName('createFirstname');
-    let lastname = document.getElementsByName('createLastname');
-    let age = document.getElementsByName('createAge');
-
-    var user = new User(firstname[0].value, lastname[0].value, age[0].value)
-    console.log(user);
-    user.create();
-    firstname[0].value = '';
-    lastname[0].value = '';
-    age[0].value = '';
-}
 
 
 function loadListUser( users){
@@ -64,8 +51,9 @@ function loadListUserFilter(search, users){
     var count = 0;
     console.log(users)
     users.forEach(function(user){
-        if (search.includes(user.firstname) && search[0] === user.firstname[0]
-            || search.includes(user.lastname) && search[0] === user.lastname[0]) {
+        console.log(search.includes(user.firstname));
+        if (user.firstname.includes(search)
+            || user.lastname.includes(search) ) {
             console.log(user);
             var tr= tbody.insertRow(count);
             tr.id = user.id;

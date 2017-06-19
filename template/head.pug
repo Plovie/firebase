@@ -1,0 +1,20 @@
+
+mixin head(scripts)
+    doctype html
+    html(lang='fr')
+        head
+            meta(charset='UTF-8')
+            title LOUIS VUITTON - Site Officiel France | LOUIS VUITTON
+            link(rel='stylesheet', href='style/foundation.min.css')
+            link(rel='stylesheet', href='style/style.css')
+            script(src='javascript/jquery.js')
+            script(src='javascript/foundation.min.js')
+            script(src='https://www.gstatic.com/firebasejs/4.1.2/firebase.js')
+            script(src='javascript/firebase.js')
+            script(src='javascript/db.js')
+            script(src='javascript/createElement.js')
+            if scripts
+                for script in scripts
+                    script(src='javascript/'+ script)
+            if block
+                block
