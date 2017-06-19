@@ -7,10 +7,9 @@ function addButton(name, classUses,path,elemToInsert){
     elemToInsert.appendChild(button);
 }
 
-function adddUsersTab(users){
-    users.forEach(function (snapshotChild) {
-        let user = snapshotChild.val();
-        let id = snapshotChild.key;
+function addUserRow(snapshot){
+        let user = snapshot.val();
+        let id = snapshot.key;
         let tabIntoInsert = document.querySelector('#list-user');
         let rowToInsert = tabIntoInsert.insertRow();
         let cell = rowToInsert.insertCell(0);
@@ -23,6 +22,14 @@ function adddUsersTab(users){
         cell2.innerHTML = user.age;
         addButton('Show','hollow button','show.html?id='+id, cell3);
         addButton('Edit','hollow button success','update.html?id='+id, cell3);
-    });
+}
 
+function adddUsersTab(users){
+    users.forEach(function (snapshotChild) {
+        addUserRow(snapshotChild)
+    });
+}
+
+function addOneUser(snapshot){
+    addUserRow(snapshot);
 }

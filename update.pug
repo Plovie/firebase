@@ -6,13 +6,19 @@ include template/nav
 +head()
     body
     +navbar()
-    div.row
-        div.column large-12
-            table.hover
-                thead
-                    tr
-                        th(width='200') Firstname
-                        th(width='200') Lastname
-                        th(width='150') Age
-                        th(width='150') Action
-                tbody#list-user
+    form
+        .row
+            .medium-4.columns
+                label
+                    | firstname
+                    input(type='text', placeholder='Firstname')#firstname
+            .medium-4.columns
+                label
+                    | lastname
+                    input(type='text', placeholder='Lastname')#lastname
+            .medium-4.columns
+                label
+                    | Age
+                    input(type='text', placeholder='Age')#age
+            .medium-4.columns
+                button(type='button', onclick = 'create()').hollow.button Create a User
