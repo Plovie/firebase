@@ -13,11 +13,11 @@ age.value = '';
 }
 
 function create () {
-    console.log('create user');
     let user ={
         firstname: firstname.value,
         lastname: lastname.value,
         age: age.value
-    }
+    };
+    console.log(user)
     createUser(user, clearInput);
 }

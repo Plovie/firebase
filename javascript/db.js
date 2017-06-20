@@ -4,19 +4,16 @@ function db(id='') {
 }
 
 function getUsers(id, cb){
-    console.log(id);
+
     db(id).on('value',function(snapshot){
         cb(snapshot);
+        console.log('coucou')
     })
 }
 
 function createUser(data, cb){
-
-    db().push({
-        firstname: 'coucou',
-        lastname: 'coucoul',
-        age: '25'
-    })
+    console.log(data);
+    db().push(data)
         .then(
             cb()
         )
@@ -26,5 +23,11 @@ function createUser(data, cb){
 }
 
 function updateUser(id, data){
+
     db(id).update(data);
+}
+
+function removeUser(id) {
+    console.log('delete');
+    db(id).remove();
 }
